@@ -1,0 +1,67 @@
+// Google Fonts - Quicksand - ( https://fonts.google.com/specimen/Quicksand?query=qu )
+// Sizes - 14px, 16px, 18px, 22px
+
+// Color Codes - Background color #F9F9F9, Outline Color #F1F1F1, Gray Text Color #A5A5A5, Primary Color Blue #0055FF, Black #000000.
+
+// "start": "react-scripts start",
+// "build": "react-scripts build",
+// "test": "react-scripts test",
+// @import "../../node_modules/antd/dist/antd.less";
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap");
+@import "./wrapper";
+@import "./menu";
+@import "./categories";
+@import "./topbar";
+@import "./table";
+
+html {
+  --background-color: #f9f9f9;
+  --outline-color: #f1f1f1;
+  --outline-dark-color: #bebebe;
+  --primary-blue-color: #0055ff;
+  --hover-bg-blue-color: #ebf1ff;
+  --black-color: #000000;
+  --gray-text-color: #a5a5a5;
+  --font-size-small: 14px;
+  --font-size-regular: 16px;
+  --font-size-large: 18px;
+  --font-size-extra-large: 22px;
+  --padding-small: 7px;
+  --padding-regular: 10px;
+  --padding-large: 20px;
+  --padding-extra-large: 35px;
+  --top-bar-height: 60px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.card {
+  box-shadow: 5px 8px 24px 5px rgba(208, 216, 243, 0.6);
+}
+
+.info__dropdown-button {
+  font-weight: 700 !important;
+  display: flex !important;
+  align-items: center !important;
+
+  .select__icon {
+    font-size: var(--font-size-large);
+    display: flex;
+    margin-right: var(--padding-regular);
+  }
+}
+
+// h5.ant-typography,
+// .ant-typography h5 {
+//   margin-bottom: 0;
+// }
+
+body {
+  background: var(--background-color);
+  // font-family: "Quicksand", "sans-serif";
+  // height: 100vh;
+}

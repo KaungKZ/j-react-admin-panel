@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import Dashboard from "./components/Dashboard";
+import AsideMenu from "./components/AsideMenu";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import AddUser from "./components/AddUser";
+import AllUsers from "./components/AllUsers";
+import Layout from "./components/utils/Layout";
 
-function App() {
+function App({ hideLoader }) {
+  useEffect(hideLoader, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Dashboard></Dashboard>
+      <Switch>
+        <Layout>
+          <Route exact path="/">
+            <AllUsers />
+          </Route>
+          <Route path="/add-user">
+            <AddUser />
+          </Route>
+        </Layout>
+      </Switch>
+    </Router>
   );
 }
 
