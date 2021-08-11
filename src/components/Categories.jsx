@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 // import { Typography } from "@material-ui/core";
-import { Typography } from "antd";
+import { Typography, Modal, Button } from "antd";
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,8 +10,23 @@ import {
   useParams,
 } from "react-router-dom";
 import { NavLink } from "react-router-dom";
+import AddUser from "./AddUser";
 
 export default function Categories() {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
   const { Title } = Typography;
   return (
     <>
@@ -92,17 +107,28 @@ export default function Categories() {
             <div className="category__section-title">Permissions</div>
             <ul className="category__ul">
               <li className="category__li">
-                <NavLink
-                  to="/add-user"
+                <Button
+                  type="link"
                   className="category__link"
-                  activeClassName="active"
+                  style={{
+                    padding: "var(--padding-small) var(--padding-regular)",
+                    borderRadius: "9px",
+                    transition: "all 300ms",
+                    display: "inline-flex",
+                    fontSize: "var(--font-size-small)",
+                    fontWeight: 700,
+                    border: "none",
+                    height: "auto",
+                    color: "var(--black-color)",
+                  }}
+                  onClick={showModal}
                 >
                   <div className="title">Add New User</div>
                   <span className="button">
                     <i className="fi fi-rr-add icon" />
                     Add
                   </span>
-                </NavLink>
+                </Button>
               </li>
               <li className="category__li">
                 <NavLink
@@ -160,6 +186,11 @@ export default function Categories() {
           </div>
         </div>
       </div>
+      <AddUser
+        isModalVisible={isModalVisible}
+        handleOk={handleOk}
+        handleCancel={handleCancel}
+      ></AddUser>
     </>
   );
 }

@@ -1,51 +1,28 @@
 import React, { useState } from "react";
 import wutcat from "../assets/wutcat.png";
-import { Menu, Dropdown, Select, Card, Input, AutoComplete } from "antd";
+import {
+  Menu,
+  Dropdown,
+  Select,
+  Card,
+  Input,
+  AutoComplete,
+  Button,
+} from "antd";
 import { DownOutlined } from "@ant-design/icons";
 import faker from "faker";
+import mmFlag from "../assets/mm-flag.jpg";
+import enFlag from "../assets/en-flag.png";
 
-export default function Topbar() {
+export default function Topbar({ data }) {
   const [result, setResult] = useState([]);
-  const [randomLastName] = useState(faker.name.lastName());
 
   const handleSearch = (value) => {
+    // console.log("search");
     setResult(value ? searchResult(value) : []);
   };
 
-  const data = [
-    {
-      title: "Junior PHP Developer",
-      id: "G2006",
-      status: "online",
-    },
-    {
-      title: "Business Development Manager",
-      id: "G2007",
-      status: "offline",
-    },
-  ];
-
-  const searchResult = (query) => {
-    return [
-      {
-        label: "Results",
-        options: data.map((d, idx) =>
-          renderItem(
-            `${query}${idx === 1 ? ` ${randomLastName}` : ""}`,
-            d.title,
-            d.id,
-            d.status
-          )
-        ),
-      },
-    ];
-  };
-
-  // console.log(searchResult("JOHN"));
-
-  // const category = `${query}${idx}`;
-
-  // });
+  function handleSelect(value) {}
 
   const accountInfo = (
     <>
@@ -62,7 +39,19 @@ export default function Topbar() {
       </Card>
     </>
   );
-  // const renderTitle = (title) => <span>{title}</span>;
+
+  const searchResult = (query) => {
+    return [
+      {
+        label: "Results",
+        options: data
+          .filter((d) => d.name.toLowerCase().includes(query.toLowerCase()))
+          .map((d) => {
+            return renderItem(d.name, d.position, d.id, d.status);
+          }),
+      },
+    ];
+  };
 
   function renderItem(name, title, value, status) {
     return {
@@ -98,6 +87,56 @@ export default function Topbar() {
       ),
     };
   }
+
+  const languageMenu = (
+    <Menu>
+      <Menu.Item key="0">
+        <Button
+          type="link"
+          className="info__dropdown-button"
+          style={{
+            color: "var(--black-color)",
+          }}
+        >
+          <img
+            src={enFlag}
+            alt=""
+            width="20"
+            height="16"
+            style={{
+              objectFit: "cover",
+              marginRight: "var(--padding-regular)",
+            }}
+          />
+          English
+        </Button>
+      </Menu.Item>
+      <Menu.Item key="1">
+        <Button
+          type="link"
+          className="info__dropdown-button"
+          // onClick={() => showConfirm("Excel Export", "Are you sure ?")}
+          // onClick={() => showModal("PDF Export", "Are you sure ?")}
+          style={{
+            color: "var(--black-color)",
+          }}
+        >
+          <img
+            src={mmFlag}
+            alt=""
+            width="20"
+            height="16"
+            style={{
+              objectFit: "cover",
+              marginRight: "var(--padding-regular)",
+            }}
+          />
+          Myanmar
+        </Button>
+      </Menu.Item>
+    </Menu>
+  );
+
   return (
     <div className="topbar">
       <div className="topbar__search">
@@ -107,6 +146,7 @@ export default function Topbar() {
             dropdownMatchSelectWidth={500}
             style={{ width: 250 }}
             onSearch={handleSearch}
+            onSelect={handleSelect}
             className="topbar__autocomplete"
             options={result}
           >
@@ -122,7 +162,25 @@ export default function Topbar() {
       <div className="topbar__links">
         <div className="topbar__links-wrapper">
           <div className="topbar__link">
-            <i className="fi fi-rr-globe icon"></i>
+            <Dropdown
+              overlay={languageMenu}
+              trigger={["click"]}
+              placement="bottomRight"
+            >
+              <a
+                className="ant-dropdown-link language__dropdown"
+                onClick={(e) => e.preventDefault()}
+              >
+                <Button
+                  // shape="circle"
+                  type="link"
+                  icon={<i className="fi fi-rr-globe icon"></i>}
+                  className="table__row-info"
+                />
+              </a>
+            </Dropdown>
+
+            <span className="topbar__link-dot"></span>
           </div>
           <div className="topbar__link">
             <i className="fi fi-rr-bell icon"></i>

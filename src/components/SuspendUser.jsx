@@ -9,15 +9,13 @@ import wutcat from "../assets/wutcat.png";
 import faker from "faker";
 import moment from "moment";
 
-export default function AllUsers() {
-  // const [result, setResult] = useState([]);
+export default function SuspendUser() {
   const [data, setData] = useState([]);
   const [selectedRows, setSelectedRows] = useState([]);
   const [isModalVisible, setIsModalVisible] = useState({
     show: false,
     title: "",
     content: "",
-    icon: "",
   });
 
   // const [resultData, setResultData] = useState([]);
@@ -50,8 +48,9 @@ export default function AllUsers() {
       dataIndex: "position",
     },
     {
-      title: "Teams",
-      dataIndex: "teams",
+      title: "Status",
+      dataIndex: "status",
+      render: (name) => <span style={{ color: "#faad14" }}>{name}</span>,
     },
     {
       title: "Address",
@@ -100,39 +99,12 @@ export default function AllUsers() {
             color: "var(--black-color)",
           }}
         >
-          <i className="fi fi-rr-info select__icon"></i>
-          View Info
-        </Button>
-      </Menu.Item>
-      <Menu.Item key="1">
-        <Button
-          type="link"
-          className="info__dropdown-button"
-          // onClick={() => showConfirm("Excel Export", "Are you sure ?")}
-          // onClick={() => showModal("PDF Export", "Are you sure ?")}
-          style={{
-            color: "var(--black-color)",
-          }}
-        >
-          <i className="fi fi-rr-pencil select__icon"></i>
-          Edit Information
-        </Button>
-      </Menu.Item>
-      <Menu.Item key="2">
-        <Button
-          type="link"
-          className="info__dropdown-button"
-          // onClick={() => showConfirm("Excel Export", "Are you sure ?")}
-          // onClick={() => showModal("PDF Export", "Are you sure ?")}
-          style={{
-            color: "var(--black-color)",
-          }}
-        >
           <i className="fi fi-rr-shield-exclamation select__icon"></i>
-          Suspend
+          Reduce
         </Button>
       </Menu.Item>
-      <Menu.Item key="3">
+
+      <Menu.Item key="1">
         <Button
           type="link"
           className="info__dropdown-button"
@@ -173,7 +145,7 @@ export default function AllUsers() {
 
   useEffect(() => {
     let _arr = [];
-    for (let i = 0; i < 15; i++) {
+    for (let i = 0; i < 4; i++) {
       _arr.push({
         key: i,
         name: `${faker.name.firstName()} ${faker.name.lastName()}`,
@@ -181,7 +153,7 @@ export default function AllUsers() {
         position: "Developer",
         id: "G2006",
         teams: "Development",
-        status: i % 2 === 0 ? "online" : "offline",
+        status: "Suspend",
         address: `London, Park Lane no. ${i}`,
         lastLogin: moment(new Date()).format(" h:mma DDMMM, YYYY"),
       });
@@ -248,7 +220,7 @@ export default function AllUsers() {
         <div className="content__header">
           <div className="content__title">
             <Title level={5} style={{ marginBottom: 0 }}>
-              Getbak Employees
+              Suspend Users
             </Title>
           </div>
           <div className="content__buttons">
