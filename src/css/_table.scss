@@ -1,6 +1,4 @@
 .content {
-  //   margin: var(--top-bar-height) 0 0 380px;
-
   &__header {
     padding: var(--padding-large);
     display: flex;
@@ -29,16 +27,11 @@
       }
       &:hover {
         color: var(--primary-blue-color);
-        // display: none;
 
         &__icon {
           color: var(--primary-blue-color);
         }
       }
-
-      // &:hover .select__icon {
-      //   color: var(--primary-blue-color);
-      // }
     }
 
     .export {
@@ -51,17 +44,11 @@
         font-weight: 700;
         background: transparent;
       }
-
-      // &__dropdown-button {
-      //   color: var(--dark-color);
-      //   font-weight: 700;
-      // }
     }
   }
 }
 
 .table {
-  //   padding: var(--padding-regular);
   &__row {
     font-weight: 700;
   }

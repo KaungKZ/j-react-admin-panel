@@ -1,16 +1,7 @@
 import React, { useState } from "react";
 import wutcat from "../assets/wutcat.png";
-import {
-  Menu,
-  Dropdown,
-  Select,
-  Card,
-  Input,
-  AutoComplete,
-  Button,
-} from "antd";
+import { Menu, Dropdown, Card, Input, AutoComplete, Button } from "antd";
 import { DownOutlined } from "@ant-design/icons";
-import faker from "faker";
 import mmFlag from "../assets/mm-flag.jpg";
 import enFlag from "../assets/en-flag.png";
 
@@ -18,11 +9,10 @@ export default function Topbar({ data }) {
   const [result, setResult] = useState([]);
 
   const handleSearch = (value) => {
-    // console.log("search");
     setResult(value ? searchResult(value) : []);
   };
 
-  function handleSelect(value) {}
+  function handleSelect() {}
 
   const accountInfo = (
     <>
@@ -115,8 +105,6 @@ export default function Topbar({ data }) {
         <Button
           type="link"
           className="info__dropdown-button"
-          // onClick={() => showConfirm("Excel Export", "Are you sure ?")}
-          // onClick={() => showModal("PDF Export", "Are you sure ?")}
           style={{
             color: "var(--black-color)",
           }}
@@ -172,7 +160,6 @@ export default function Topbar({ data }) {
                 onClick={(e) => e.preventDefault()}
               >
                 <Button
-                  // shape="circle"
                   type="link"
                   icon={<i className="fi fi-rr-globe icon"></i>}
                   className="table__row-info"
@@ -200,7 +187,7 @@ export default function Topbar({ data }) {
                 height="24"
                 style={{ margin: "-10px 5px 0 0" }}
                 className="photo"
-              />{" "}
+              />
               Carouline Robertson <DownOutlined />
             </a>
           </Dropdown>

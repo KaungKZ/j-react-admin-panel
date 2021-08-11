@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from "react";
-// import { Input } from "antd";
-// import { Select } from "antd";
+
 import DefaultTable from "./make_tables/DefaultTable";
 import Topbar from "./Topbar";
 import { Menu, Dropdown, Button, Typography, Modal, Tooltip } from "antd";
-// import { DownOutlined } from "@ant-design/icons";
 import wutcat from "../assets/wutcat.png";
 import faker from "faker";
 import moment from "moment";
 
 export default function AllUsers() {
-  // const [result, setResult] = useState([]);
   const [data, setData] = useState([]);
   const [selectedRows, setSelectedRows] = useState([]);
   const [isModalVisible, setIsModalVisible] = useState({
@@ -20,7 +17,6 @@ export default function AllUsers() {
     icon: "",
   });
 
-  // const [resultData, setResultData] = useState([]);
   const { Title } = Typography;
 
   const columns = [
@@ -77,7 +73,6 @@ export default function AllUsers() {
             onClick={(e) => e.preventDefault()}
           >
             <Button
-              // shape="circle"
               type="link"
               icon={
                 <i className="fi fi-rr-menu-dots-vertical table__row-info-icon" />
@@ -108,8 +103,6 @@ export default function AllUsers() {
         <Button
           type="link"
           className="info__dropdown-button"
-          // onClick={() => showConfirm("Excel Export", "Are you sure ?")}
-          // onClick={() => showModal("PDF Export", "Are you sure ?")}
           style={{
             color: "var(--black-color)",
           }}
@@ -122,8 +115,6 @@ export default function AllUsers() {
         <Button
           type="link"
           className="info__dropdown-button"
-          // onClick={() => showConfirm("Excel Export", "Are you sure ?")}
-          // onClick={() => showModal("PDF Export", "Are you sure ?")}
           style={{
             color: "var(--black-color)",
           }}
@@ -136,8 +127,6 @@ export default function AllUsers() {
         <Button
           type="link"
           className="info__dropdown-button"
-          // onClick={() => showConfirm("Excel Export", "Are you sure ?")}
-          // onClick={() => showModal("PDF Export", "Are you sure ?")}
           style={{
             color: "#f5222d",
           }}
@@ -218,7 +207,6 @@ export default function AllUsers() {
         <Button
           type="link"
           className="export__dropdown-button"
-          // onClick={() => showConfirm("Excel Export", "Are you sure ?")}
           onClick={() => showModal("PDF Export", "Are you sure ?")}
           style={{
             color: "#f5222d",

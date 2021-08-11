@@ -1,14 +1,6 @@
 import React, { useState } from "react";
-// import { Typography } from "@material-ui/core";
-import { Typography, Modal, Button } from "antd";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useRouteMatch,
-  useParams,
-} from "react-router-dom";
+import { Typography, Button } from "antd";
+
 import { NavLink } from "react-router-dom";
 import AddUser from "./AddUser";
 

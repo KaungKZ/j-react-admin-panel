@@ -17,7 +17,6 @@
   }
 
   &__list {
-    // border-right: 3px solid var(--outline-color);
     height: 100%;
     padding: var(--padding-regular);
   }
@@ -29,9 +28,6 @@
   }
 
   &__link {
-    // &:first-child {
-    //   margin-top: 10px;
-    // }
     margin-top: 20px;
     text-decoration: none;
     padding: 8px;
@@ -46,14 +42,9 @@
     }
   }
 
-  // &__link:first-child {
-  // }
-
   &__li {
-    // margin-top: 30px;
     list-style-type: none;
     color: var(--gray-text-color);
-    // cursor: pointer;
   }
 
   &__li:first-child {

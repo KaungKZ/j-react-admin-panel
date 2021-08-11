@@ -1,8 +1,4 @@
 .topbar {
-  // margin-left: 380px;
-  // position: fixed;
-  // left: 380px;
-  // top: 0;
   background: var(--body-background-color);
   width: 100%;
   height: var(--top-bar-height);
@@ -18,7 +14,6 @@
     max-width: 75%;
     height: 100%;
     margin-left: var(--padding-regular);
-    // max-width: 50%;
     .icon {
       margin-right: var(--padding-regular);
       color: var(--gray-text-color);
@@ -57,7 +52,6 @@
   }
 
   &__links {
-    // width: 100%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -72,15 +66,12 @@
   }
 
   &__link {
-    // display: flex;
-    // align-items: center;
     position: relative;
     cursor: pointer;
 
     .icon {
       display: flex;
       color: var(--outline-dark-color);
-      // color: var(--gray-text-color);
       font-size: var(--font-size-extra-large);
       transition: color 300ms;
     }
@@ -109,24 +100,4 @@
       font-weight: 700;
     }
   }
-
-  // .ant-select-item {
-  //   .photo {
-  //     margin: -10px 5px 0 0;
-  //   }
-  // }
-
-  // &__dropdown {
-  //   font-weight: 600;
-  //   .ant-select-item-option-content {
-  //     font-weight: 600;
-  //   }
-
-  //   .photo {
-  //     margin: -10px 5px 0 0;
-  //   }
-  // }
-  //   .card {
-  //   box-shadow: 5px 8px 24px 5px rgba(208, 216, 243, 0.6);
-  // }
 }

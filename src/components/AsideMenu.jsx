@@ -1,11 +1,7 @@
 import React from "react";
 import logo from "../assets/Getbak-logo-only1.png";
-import { Layout, Menu } from "antd";
 
 export default function AsideMenu() {
-  // const { Header, Content, Footer, Sider } = Layout;
-
-  // function handleClickLink() {}
   return (
     <div className="menu">
       <div className="menu__logo-wrapper">

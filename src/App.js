@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
 import Dashboard from "./components/Dashboard";
-import AsideMenu from "./components/AsideMenu";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-// import AddUser from "./components/AddUser";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import AllUsers from "./components/AllUsers";
 import Layout from "./components/utils/Layout";
 import SuspendUser from "./components/SuspendUser";
